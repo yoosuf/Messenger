@@ -7,7 +7,7 @@ If you really like it? use it, implement it and share the link with me ;) Happy 
 ![Alt Messages Database Design](https://github.com/yoosuf/Messenger/blob/master/Messenger.png)
 
 ## Startup? want to build an app? 
-If you have a query about building an app or an API for your Mobile application, please consult at mayoosuf@gmail.com or visit [Helmlogic](http://helmlogic.com "Helmlogic")
+If you have a query about building an app or an API for your Mobile application, please consult at mayoosuf@gmail.com or visit [Finetick](http://finetick.com "Finetick")
 
 
 
