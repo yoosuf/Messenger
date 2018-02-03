@@ -12,6 +12,9 @@ If you have a query about building an app or an API for your Mobile application,
 
 
 ## Versions 
+### 1.0.2
+#4 fix 
+
 ### 1.0.1
 Updated Access to devices relationship as one to one.
 
