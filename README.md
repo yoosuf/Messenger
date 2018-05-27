@@ -1,5 +1,5 @@
 # Messenger 
-
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RGQ8NSYPA59FL)
 
 
 Messenger Database Design Concept for chat applications, by using this, you will be able to create group chat or a  one to one chat application without a hassle. 
