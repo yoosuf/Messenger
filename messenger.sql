@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `is_active` TINYINT(1) NOT NULL DEFAULT 0,
   `is_reported` TINYINT(1) NOT NULL DEFAULT 0,
   `is_blocked` TINYINT(1) NOT NULL DEFAULT 0,
-  `preferences` TEXT NOT NULL DEFAULT '',
+  `preferences` TEXT NOT NULL,
   `created_at` DATETIME NOT NULL,
   `updated_at` DATETIME NOT NULL,
   PRIMARY KEY (`id`))
