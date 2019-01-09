@@ -9,7 +9,7 @@ If you really like it? use it, implement it and share the link with me ;) Happy 
 ![Alt Messages Database Design](https://github.com/yoosuf/Messenger/blob/master/Messenger.png)
 
 ## Startup? want to build an app? 
-If you have a query about building an app or an API for your Mobile application, please consult at mayoosuf@gmail.com or visit [Finetick](http://finetick.com "Finetick")
+If you have a query about building an app or an API for your Mobile application, please consult at hi@crew.lk or visit [Crew](https://crew.lk "Crew"), Crew is an open innovation house based in Sri Lanka.
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YGBGPDLRDQERQ)
 
