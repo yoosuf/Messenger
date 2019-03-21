@@ -1,28 +1,24 @@
-# Messenger 
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YGBGPDLRDQERQ)
+# README
 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Messenger Database Design Concept for chat applications, by using this, you will be able to create group chat or a  one to one chat application without a hassle. 
+Things you may want to cover:
 
-If you really like it? use it, implement it and share the link with me ;) Happy Messaging!
+* Ruby version
 
-![Alt Messages Database Design](https://github.com/yoosuf/Messenger/blob/master/Messenger.png)
+* System dependencies
 
-## Startup? want to build an app? 
-If you have a query about building an app or an API for your Mobile application, please consult at hi@crew.lk or visit [Crew](https://crew.lk "Crew"), Crew is an open innovation house based in Sri Lanka.
+* Configuration
 
-[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YGBGPDLRDQERQ)
+* Database creation
 
+* Database initialization
 
+* How to run the test suite
 
+* Services (job queues, cache servers, search engines, etc.)
 
-## Versions 
-### 1.0.2
-#4 fix 
+* Deployment instructions
 
-### 1.0.1
-Updated Access to devices relationship as one to one.
-
-### 1.0 
-Initial commit.
-
+* ...
