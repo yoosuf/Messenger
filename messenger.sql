@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `guid` VARCHAR(100) NOT NULL,
   `conversation_id` INT NOT NULL,
   `sender_id` INT NOT NULL,
-  `message_type` ENUM('text', 'image', 'vedio', 'audio') NOT NULL,
+  `message_type` ENUM('text', 'image', 'video', 'audio') NOT NULL,
   `message` VARCHAR(255) NOT NULL DEFAULT '',
   `attachment_thumb_url` VARCHAR(255) NOT NULL DEFAULT '',
   `attachment_url` VARCHAR(255) NOT NULL DEFAULT '',
