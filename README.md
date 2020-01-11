@@ -17,6 +17,10 @@ If you have a query about building an app or an API for your Mobile application,
 
 
 ## Versions 
+
+### 1.0.3 
+Attachment table added, now you can add galleries for messages
+
 ### 1.0.2
 #4 fix 
 
