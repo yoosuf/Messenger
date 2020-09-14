@@ -125,6 +125,10 @@ CREATE TABLE IF NOT EXISTS `participants` (
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
+CREATE UNIQUE INDEX `participants_UNIQUE` ON `participants` (
+   `conversation_id`, `users_id`) VISIBLE;
+
+SHOW WARNINGS;
 
 -- -----------------------------------------------------
 -- Table `reports`
