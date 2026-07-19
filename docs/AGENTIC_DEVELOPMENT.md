@@ -19,6 +19,50 @@ Provide a repeatable process for AI-assisted development on this repository.
 5. Update documentation.
 6. Update version history if release-impacting.
 
+## Use-Case-Driven Agent Workflow
+
+```mermaid
+flowchart TD
+	A[Identify Product Use Case] --> B[Map to Tables]
+	B --> C[Design Minimal Schema Change]
+	C --> D[Check Compatibility Risk]
+	D --> E[Add or Adjust Indexes]
+	E --> F[Update Architecture and README]
+	F --> G[Update Version History if Needed]
+	G --> H[Open PR with Migration Notes]
+```
+
+## Use-Case Matrix for Agent Planning
+
+### Messaging Use Cases
+
+- direct messaging: `conversation`, `participants`, `messages`
+- group messaging: `conversation`, `participants`, `messages`
+- media attachments: `messages`, `attachments`
+- message delete per user: `deleted_messages`
+- conversation hide per user: `deleted_conversations`
+
+### Account and Access Use Cases
+
+- sign-up and identity: `users`
+- verification: `user_verification`
+- device registration: `devices`
+- token access state: `access`
+
+### Safety and Moderation Use Cases
+
+- participant reporting: `reports`
+- participant blocking: `block_list`
+
+### Contact and Discovery Use Cases
+
+- contact sync: `contacts`
+- user-contact mapping: `user_contact`
+
+### Observability Use Cases
+
+- event logging and timeline analytics: `activities`
+
 ## Change Types and Expectations
 
 ### Additive Change

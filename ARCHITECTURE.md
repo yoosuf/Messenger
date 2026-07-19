@@ -85,6 +85,117 @@ erDiagram
     CONVERSATION ||--o{ DELETED_CONVERSATIONS : hidden
 ```
 
+## End-to-End Message Lifecycle
+
+```mermaid
+sequenceDiagram
+    participant App as Client App
+    participant API as Messaging API
+    participant DB as Messenger DB
+
+    App->>API: Send message payload
+    API->>DB: Validate conversation and participant
+    API->>DB: Insert into messages
+    alt Message has attachment
+        API->>DB: Insert into attachments
+    end
+    API->>DB: Insert activity event
+    API-->>App: Acknowledge message accepted
+```
+
+## Moderation and Safety Flow
+
+```mermaid
+flowchart TD
+    A[User Reports or Blocks] --> B{Action Type}
+    B -->|Report| C[Insert into reports]
+    B -->|Block| D[Insert into block_list]
+    C --> E[Set report status pending]
+    E --> F[Moderator resolves]
+    F --> G[Set report status resolved]
+```
+
+## Access and Device Flow
+
+```mermaid
+flowchart TD
+    A[User Login] --> B[Register Device]
+    B --> C[Insert into devices]
+    C --> D[Generate Access Token]
+    D --> E[Insert into access]
+    E --> F[Authenticated Messaging Session]
+```
+
+## Comprehensive Use Cases
+
+### Messaging
+
+- Start a direct conversation between two users.
+- Start a group conversation with many users.
+- Add participant records for conversation membership.
+- Send plain text messages.
+- Send image, audio, and video-style messages.
+- Attach files and thumbnails to messages.
+- Remove message visibility for a specific user.
+- Remove conversation visibility for a specific user.
+
+### Trust and Safety
+
+- Report abusive participants.
+- Track report state transitions.
+- Block participants to prevent further interaction.
+
+### Identity and Access
+
+- Register users with unique phone and email.
+- Verify users using verification codes.
+- Connect users to one or more devices.
+- Persist auth token access state per device.
+
+### Contacts and Discovery
+
+- Sync contact book data.
+- Link contacts to application users.
+- Use contact relationships to enable invite and discovery flows.
+
+### Operations and Analytics
+
+- Track app actions in activities.
+- Build conversation and user activity dashboards.
+- Audit account and messaging lifecycle events.
+
+### SaaS Collaboration Scenarios
+
+- Create project channels and cross-team discussion rooms.
+- Support internal helpdesk and customer success messaging.
+- Track operational and security event conversations.
+- Maintain message-level and activity-level auditability for compliance.
+
+### Dating App Integration Scenarios
+
+- Create chat threads only after a match signal.
+- Limit participants to two matched users for direct chat.
+- Enable media sharing between matched users.
+- Trigger report and block actions for user safety.
+- Preserve privacy with per-user delete and hide behavior.
+
+## Dating App Match-to-Chat Flow
+
+```mermaid
+sequenceDiagram
+    participant Match as Match Engine
+    participant API as Chat API
+    participant DB as Messenger DB
+    participant RT as Realtime Layer
+
+    Match->>API: match_created(userA, userB)
+    API->>DB: insert conversation
+    API->>DB: insert participants(userA, userB)
+    API->>RT: create/join room
+    RT-->>API: room active
+    API-->>Match: chat enabled
+```
+
 ## Important Design Notes
 
 - The schema currently does not define explicit foreign key constraints in DDL, even though many columns are relational references.
