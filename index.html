@@ -1,59 +1,248 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Messenger Database concept by yoosuf</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger Schema | Chat Database Foundation</title>
+    <meta name="description" content="Messenger is a relational database schema for one-to-one and group chat applications, with support for moderation, attachments, devices, and real-time backend integrations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ink: #0f172a;
+        --muted: #475569;
+        --soft: #e2e8f0;
+        --paper: #f8fafc;
+        --accent: #0ea5e9;
+        --accent-2: #f97316;
+        --card: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 500px at -20% -10%, #bae6fd 0%, transparent 55%),
+          radial-gradient(1000px 500px at 120% 10%, #fed7aa 0%, transparent 60%),
+          var(--paper);
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .hero {
+        padding: 48px 0 24px;
+      }
+
+      .badge {
+        display: inline-block;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: #dbeafe;
+        color: #1e3a8a;
+        border-radius: 999px;
+        padding: 8px 12px;
+      }
+
+      h1 {
+        margin: 14px 0 12px;
+        font-size: clamp(34px, 6vw, 64px);
+        line-height: 1.02;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: clamp(17px, 2.2vw, 21px);
+        max-width: 840px;
+        line-height: 1.5;
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .btn {
+        text-decoration: none;
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-weight: 700;
+        transition: transform 0.15s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--ink);
+        color: #ffffff;
+      }
+
+      .btn-secondary {
+        background: #ffffff;
+        color: var(--ink);
+        border: 1px solid var(--soft);
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin: 24px 0 10px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      .card h3 {
+        margin: 0 0 10px;
+        font-size: 18px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .section {
+        margin-top: 24px;
+      }
+
+      .section h2 {
+        font-size: clamp(24px, 3.3vw, 34px);
+        margin: 0 0 14px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .docs {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .docs a {
+        display: block;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid var(--soft);
+        text-decoration: none;
+        color: var(--ink);
+        background: #ffffff;
+        font-weight: 500;
+      }
+
+      .footer {
+        margin: 40px 0 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--soft);
+        color: var(--muted);
+      }
+
+      .footer a {
+        color: var(--ink);
+      }
+    </style>
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Messenger</h1>
-      <h2 class="project-tagline">Messenger Database Design Concept</h2>
-      <a href="https://github.com/yoosuf/Messenger" class="btn">View on GitHub</a>
-      <a href="https://github.com/yoosuf/Messenger/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/yoosuf/Messenger/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+    <main class="wrap">
+      <section class="hero">
+        <span class="badge">Open Source Chat Schema</span>
+        <h1>Messenger: The Database Core for Realtime Conversations</h1>
+        <p class="lead">
+          Ship chat products faster with a practical relational schema for one-to-one chat,
+          group messaging, moderation, device sessions, and attachment workflows.
+          Built for teams implementing Node.js or Go backends with PostgreSQL and socket support.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://github.com/yoosuf/Messenger">View Repository</a>
+          <a class="btn btn-secondary" href="https://github.com/yoosuf/Messenger/blob/master/README.md">Read Documentation</a>
+          <a class="btn btn-secondary" href="https://github.com/yoosuf/Messenger/blob/master/messenger.sql">Explore SQL Schema</a>
+        </div>
+      </section>
 
-    <section class="main-content">
-      <h1>
-<a id="messenger" class="anchor" href="#messenger" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Messenger</h1>
+      <section class="section">
+        <div class="grid">
+          <article class="card">
+            <h3>Core Messaging</h3>
+            <p>Direct chat, group chat, participants, message persistence, and per-user delete visibility controls.</p>
+          </article>
+          <article class="card">
+            <h3>Trust and Safety</h3>
+            <p>Built-in report and block models to support moderation pipelines and safer user experiences.</p>
+          </article>
+          <article class="card">
+            <h3>Device and Access</h3>
+            <p>Device registration and token access modeling to support multi-device realtime chat behavior.</p>
+          </article>
+          <article class="card">
+            <h3>Media Ready</h3>
+            <p>Attachment support for galleries and media messaging in modern mobile and web products.</p>
+          </article>
+        </div>
+      </section>
 
-<p>Messenger Database Design Concept for chat applications, by using this, you will be able to create group chat or a  one to one chat application without a hassle. </p>
+      <section class="section">
+        <h2>SaaS Use Cases</h2>
+        <ul>
+          <li>Team workspace channels for product, support, and operations communication.</li>
+          <li>Customer-account chat workflows between users and success teams.</li>
+          <li>Compliance-aware message trails using activity and moderation entities.</li>
+          <li>Role-driven or tenant-driven API layers built on top of the schema.</li>
+        </ul>
+      </section>
 
+      <section class="section">
+        <h2>Dating App Integration Use Cases</h2>
+        <ul>
+          <li>Match-to-chat activation that creates direct conversations when a match event occurs.</li>
+          <li>Secure one-to-one messaging with media sharing between matched users.</li>
+          <li>Safety workflows with report and block mechanisms for abuse prevention.</li>
+          <li>Privacy-centric user controls such as per-user message and conversation hide behavior.</li>
+        </ul>
+      </section>
 
+      <section class="section">
+        <h2>Implementation Docs</h2>
+        <div class="docs">
+          <a href="https://github.com/yoosuf/Messenger/blob/master/docs/NODE_EXPRESS_TYPESCRIPT_POSTGRES_SOCKET.md">Node.js + Express + TypeScript + PostgreSQL + Socket.IO Guide</a>
+          <a href="https://github.com/yoosuf/Messenger/blob/master/docs/GO_POSTGRES_SOCKET.md">Go + PostgreSQL + WebSocket Guide</a>
+          <a href="https://github.com/yoosuf/Messenger/blob/master/ARCHITECTURE.md">Architecture and Lifecycle Diagrams</a>
+          <a href="https://github.com/yoosuf/Messenger/tree/master/.github/prompts">Prompt Pack for Agentic Development</a>
+        </div>
+      </section>
 
-<p>If you really like it? use it, implement it and share the link with me ;) Happy Messaging!</p>
-
-<p><img src="https://raw.githubusercontent.com/yoosuf/Messenger/master/Messenger.png" alt="Messages Database Design"></p>
-
-<h2>
-<a id="startup-want-to-build-an-app" class="anchor" href="#startup-want-to-build-an-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Startup? want to build an app?</h2>
-
-<p>If you have a query about building an app or an API for your Mobile application, please consult via <a href="mailto:mayoosuf@gmail.com">email</a> or visit <a href="https://crew.lk" title="Finetick">Crew Digital</a></p>
-
-<h2>
-<a id="versions" class="anchor" href="#versions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Versions</h2>
-
-<h3>
-<a id="101" class="anchor" href="#101" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.0.1</h3>
-
-<p>Updated Access to devices relationship as one to one.</p>
-
-<h3>
-<a id="10" class="anchor" href="#10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.0</h3>
-
-<p>Initial commit.</p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/yoosuf/Messenger">Messenger</a> is maintained by <a href="https://github.com/yoosuf">yoosuf</a>.</span>
-
-      </footer>
-
-    </section>
-
-  
+      <section class="footer">
+        <p>
+          Maintained by <a href="https://github.com/yoosuf">yoosuf</a>.
+          Need implementation support? Contact <a href="mailto:hi@crew.lk">hi@crew.lk</a>.
+        </p>
+      </section>
+    </main>
   </body>
 </html>
