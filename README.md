@@ -174,7 +174,7 @@ flowchart LR
 
 ## Need Help Building an App or API?
 
-For implementation support, contact hi@crew.lk or visit [Crew](https://crew.lk "Crew").
+For implementation support, contact mayoosuf@gmail.com or visit [Crew](https://crew.lk "Crew").
 Crew is an open innovation house based in Sri Lanka.
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YGBGPDLRDQERQ)
@@ -202,4 +202,3 @@ Commits: `ffea804`, `936038e`
 ### 1.0.0 (2015-05-28)
 Initial release.
 Commit: `2c2b89f`
-
